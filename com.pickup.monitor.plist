@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchDAEMON  ->  /Library/LaunchDaemons/com.pickup.monitor.plist
+  Owner root:wheel, mode 644.  Load with:
+      sudo launchctl bootstrap system /Library/LaunchDaemons/com.pickup.monitor.plist
+
+  Deliberately has NO StartInterval. The system domain is always active, but the
+  3-minute cadence now lives inside monitor_daemon.py so scheduling can never
+  again depend on launchd domain state. launchd's only job is KeepAlive.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.pickup.monitor</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/rushabhddh/server/projects/apple/run_monitor_daemon.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/rushabhddh/server/projects/apple</string>
+
+    <!-- Run as the human, not root: pickup_history.db and the logs stay
+         owned by rushabhddh, and nothing in this project needs root. -->
+    <key>UserName</key>
+    <string>rushabhddh</string>
+    <key>GroupName</key>
+    <string>staff</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+
+    <!-- If the process dies instantly (bad .env, missing python) this stops
+         launchd from spinning; it also caps restart rate after a crash. -->
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+
+    <!-- SIGTERM -> clean exit inside the sleep loop; 20s is generous. -->
+    <key>ExitTimeOut</key>
+    <integer>20</integer>
+
+    <key>ProcessType</key>
+    <string>Standard</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+        <key>PICKUP_INTERVAL</key>
+        <string>180</string>
+    </dict>
+
+    <!-- Startup/exec failures only; the monitor's own output goes to
+         monitor.log via the wrapper script. -->
+    <key>StandardOutPath</key>
+    <string>/Users/rushabhddh/server/projects/apple/launchd-monitor.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/rushabhddh/server/projects/apple/launchd-monitor.log</string>
+</dict>
+</plist>

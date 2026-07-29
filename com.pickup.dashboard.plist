@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  LaunchDAEMON  ->  /Library/LaunchDaemons/com.pickup.dashboard.plist
+  Owner root:wheel, mode 644.  Load with:
+      sudo launchctl bootstrap system /Library/LaunchDaemons/com.pickup.dashboard.plist
+
+  As a LaunchAgent this job LOOKED healthy only because RunAtLoad fired during
+  the explicit bootstrap. Once gui/501 went on-demand-only, KeepAlive would not
+  have restarted it after a crash either: the same bug as the monitor, just
+  latent. In the system domain it restarts at boot with no login required.
+-->
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.pickup.dashboard</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/rushabhddh/server/projects/apple/run_dashboard.sh</string>
+    </array>
+
+    <key>WorkingDirectory</key>
+    <string>/Users/rushabhddh/server/projects/apple</string>
+
+    <key>UserName</key>
+    <string>rushabhddh</string>
+    <key>GroupName</key>
+    <string>staff</string>
+
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>ThrottleInterval</key>
+    <integer>30</integer>
+    <key>ExitTimeOut</key>
+    <integer>20</integer>
+
+    <key>ProcessType</key>
+    <string>Standard</string>
+
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    </dict>
+
+    <key>StandardOutPath</key>
+    <string>/Users/rushabhddh/server/projects/apple/launchd-dashboard.log</string>
+    <key>StandardErrorPath</key>
+    <string>/Users/rushabhddh/server/projects/apple/launchd-dashboard.log</string>
+</dict>
+</plist>

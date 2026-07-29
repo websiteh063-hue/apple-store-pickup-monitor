@@ -1,0 +1,11 @@
+# Environment secrets
+.env
+
+# Python bytecode
+__pycache__/
+*.pyc
+
+# OS / Logs
+.DS_Store
+*.log
+__MACOSX/
