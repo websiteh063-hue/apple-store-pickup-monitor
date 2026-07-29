@@ -166,33 +166,35 @@ def ist_now():
     return datetime.datetime.now(ist).strftime("%d %b %Y, %I:%M %p IST")
 
 
-def check_store(sid, query):
+def check_store(sid, _query=None):
     """Return (state, detail). state in {'available','nostock','unverified'}.
 
+    Queries per-part for accuracy so Apple's API does not mask store pickup stock.
     Also logs the resolved state and per-colour buyability to the DB (if enabled).
     """
-    url = f"https://www.apple.com/in/shop/buyability-message?{query}&store={sid}"
-    try:
-        data = fetch(url)
-    except Exception as e:  # noqa: BLE001
-        return _finish(sid, "unverified", f"fetch failed after retries: {e}", None)
-    try:
-        apu = data["body"]["content"]["buyabilityMessage"]["apu"]
-    except (KeyError, TypeError):
-        return _finish(sid, "unverified",
-                       "no 'apu' block in Apple response (format change/block)", None)
+    verified = {}
+    ready = []
+    unverified_count = 0
 
-    seen = [p for p in PARTS if p in apu]
-    if not seen:
-        return _finish(sid, "unverified",
-                       "Apple response did not include our part numbers", None)
+    for part, colour_name in PARTS.items():
+        url = f"https://www.apple.com/in/shop/buyability-message?parts.0={urllib.parse.quote(part, safe='')}&store={sid}"
+        try:
+            data = fetch(url)
+            apu = data["body"]["content"]["buyabilityMessage"]["apu"]
+            is_buyable = bool(apu.get(part, {}).get("isBuyable") is True)
+            verified[part] = is_buyable
+            if is_buyable:
+                ready.append(colour_name)
+        except Exception:
+            unverified_count += 1
 
-    ready = [PARTS[p] for p in seen if apu[p].get("isBuyable") is True]
-    verified = {p: bool(apu[p].get("isBuyable") is True) for p in seen}
+    if unverified_count == len(PARTS):
+        return _finish(sid, "unverified", "fetch failed for all parts after retries", None)
+
     if ready:
         return _finish(sid, "available", ready, verified)
-    return _finish(sid, "nostock",
-                   f"{len(seen)}/{len(PARTS)} colours confirmed, none buyable", verified)
+
+    return _finish(sid, "nostock", f"{len(verified)}/{len(PARTS)} colours confirmed, none buyable", verified)
 
 
 def _finish(sid, state, detail, verified):
@@ -209,10 +211,7 @@ def _finish(sid, state, detail, verified):
 
 
 def main():
-    query = "&".join(
-        f"parts.{i}={urllib.parse.quote(p, safe='')}" for i, p in enumerate(PARTS)
-    )
-    results = {sid: check_store(sid, query) for sid in STORES}
+    results = {sid: check_store(sid) for sid in STORES}
     now = ist_now()
 
     for sid, (state, detail) in results.items():
