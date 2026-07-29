@@ -139,7 +139,7 @@ PAGE = """
   <div class="wrap row">
     <div>
       <h1>iPhone 17 256GB · Pickup Monitor</h1>
-      <div class="sub">Apple BKC, Apple Borivali &amp; Apple Saket</div>
+      <div class="sub">Apple BKC, Apple Borivali, Apple Saket &amp; Apple Hebbal</div>
     </div>
     <div style="text-align:right">
       <div class="live"><span class="dot" id="dot"></span><span id="liveText">connecting…</span></div>

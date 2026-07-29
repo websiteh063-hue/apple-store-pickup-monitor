@@ -1,173 +1,276 @@
 {
-  "generated_at_utc": "2026-07-29 04:14:46Z",
+  "generated_at_utc": "2026-07-29 04:34:02Z",
   "telegram_bot_url": "https://t.me/Fortune_feedbackbot",
   "telegram_bot_username": "Fortune_feedbackbot",
   "current": {
     "stores": [
       {
-        "id": 1079,
+        "id": 1088,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "state": "nostock",
         "detail": "5/5 colours confirmed, none buyable",
-        "checked_at": "2026-07-29 03:20:51"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 1080,
+        "id": 1089,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "state": "nostock",
         "detail": "5/5 colours confirmed, none buyable",
-        "checked_at": "2026-07-29 03:20:52"
+        "checked_at": "2026-07-29 04:33:53"
       },
       {
-        "id": 1081,
+        "id": 1091,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "state": "nostock",
+        "detail": "5/5 colours confirmed, none buyable",
+        "checked_at": "2026-07-29 04:33:56"
+      },
+      {
+        "id": 1090,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "state": "nostock",
         "detail": "5/5 colours confirmed, none buyable",
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:54"
       }
     ],
     "colours": [
       {
-        "id": 5391,
+        "id": 5436,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "part": "MG6J4HN/A",
         "colour": "Black",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:51"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 5393,
+        "id": 5438,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "part": "MG6M4HN/A",
         "colour": "Lavender",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:52"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 5395,
+        "id": 5440,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "part": "MG6Q4HN/A",
         "colour": "Mist Blue",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:52"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 5394,
+        "id": 5439,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "part": "MG6N4HN/A",
         "colour": "Sage",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:52"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 5392,
+        "id": 5437,
         "store_id": "R744",
         "store_name": "Apple BKC",
         "part": "MG6K4HN/A",
         "colour": "White",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:51"
+        "checked_at": "2026-07-29 04:33:51"
       },
       {
-        "id": 5396,
+        "id": 5441,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "part": "MG6J4HN/A",
         "colour": "Black",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:53"
+        "checked_at": "2026-07-29 04:33:53"
       },
       {
-        "id": 5398,
+        "id": 5443,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "part": "MG6M4HN/A",
         "colour": "Lavender",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:53"
+        "checked_at": "2026-07-29 04:33:53"
       },
       {
-        "id": 5400,
+        "id": 5445,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "part": "MG6Q4HN/A",
         "colour": "Mist Blue",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:53"
+        "checked_at": "2026-07-29 04:33:54"
       },
       {
-        "id": 5399,
+        "id": 5444,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "part": "MG6N4HN/A",
         "colour": "Sage",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:53"
+        "checked_at": "2026-07-29 04:33:53"
       },
       {
-        "id": 5397,
+        "id": 5442,
         "store_id": "R757",
         "store_name": "Apple Borivali",
         "part": "MG6K4HN/A",
         "colour": "White",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:53"
+        "checked_at": "2026-07-29 04:33:53"
       },
       {
-        "id": 5401,
+        "id": 5451,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "part": "MG6J4HN/A",
+        "colour": "Black",
+        "is_buyable": 0,
+        "checked_at": "2026-07-29 04:33:57"
+      },
+      {
+        "id": 5453,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "part": "MG6M4HN/A",
+        "colour": "Lavender",
+        "is_buyable": 0,
+        "checked_at": "2026-07-29 04:33:57"
+      },
+      {
+        "id": 5455,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "part": "MG6Q4HN/A",
+        "colour": "Mist Blue",
+        "is_buyable": 0,
+        "checked_at": "2026-07-29 04:33:57"
+      },
+      {
+        "id": 5454,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "part": "MG6N4HN/A",
+        "colour": "Sage",
+        "is_buyable": 0,
+        "checked_at": "2026-07-29 04:33:57"
+      },
+      {
+        "id": 5452,
+        "store_id": "R778",
+        "store_name": "Apple Hebbal",
+        "part": "MG6K4HN/A",
+        "colour": "White",
+        "is_buyable": 0,
+        "checked_at": "2026-07-29 04:33:57"
+      },
+      {
+        "id": 5446,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "part": "MG6J4HN/A",
         "colour": "Black",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:55"
       },
       {
-        "id": 5403,
+        "id": 5448,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "part": "MG6M4HN/A",
         "colour": "Lavender",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:55"
       },
       {
-        "id": 5405,
+        "id": 5450,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "part": "MG6Q4HN/A",
         "colour": "Mist Blue",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:55"
       },
       {
-        "id": 5404,
+        "id": 5449,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "part": "MG6N4HN/A",
         "colour": "Sage",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:55"
       },
       {
-        "id": 5402,
+        "id": 5447,
         "store_id": "R756",
         "store_name": "Apple Saket",
         "part": "MG6K4HN/A",
         "colour": "White",
         "is_buyable": 0,
-        "checked_at": "2026-07-29 03:20:54"
+        "checked_at": "2026-07-29 04:33:55"
       }
     ]
   },
   "changes": [
+    {
+      "id": 80,
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "part": "MG6J4HN/A",
+      "colour": "Black",
+      "prev_buyable": null,
+      "new_buyable": 0,
+      "changed_at": "2026-07-29 04:33:57"
+    },
+    {
+      "id": 81,
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "part": "MG6K4HN/A",
+      "colour": "White",
+      "prev_buyable": null,
+      "new_buyable": 0,
+      "changed_at": "2026-07-29 04:33:57"
+    },
+    {
+      "id": 82,
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "part": "MG6M4HN/A",
+      "colour": "Lavender",
+      "prev_buyable": null,
+      "new_buyable": 0,
+      "changed_at": "2026-07-29 04:33:57"
+    },
+    {
+      "id": 83,
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "part": "MG6N4HN/A",
+      "colour": "Sage",
+      "prev_buyable": null,
+      "new_buyable": 0,
+      "changed_at": "2026-07-29 04:33:57"
+    },
+    {
+      "id": 84,
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "part": "MG6Q4HN/A",
+      "colour": "Mist Blue",
+      "prev_buyable": null,
+      "new_buyable": 0,
+      "changed_at": "2026-07-29 04:33:57"
+    },
     {
       "id": 75,
       "store_id": "R756",
@@ -963,7 +1066,7 @@
     {
       "store_id": "R744",
       "store_name": "Apple BKC",
-      "total_checks": 540,
+      "total_checks": 543,
       "available_checks": 15,
       "unverified_checks": 0,
       "verified_rate": 100.0,
@@ -972,16 +1075,25 @@
     {
       "store_id": "R757",
       "store_name": "Apple Borivali",
-      "total_checks": 540,
+      "total_checks": 543,
       "available_checks": 12,
       "unverified_checks": 0,
       "verified_rate": 100.0,
       "times_became_available": 13
     },
     {
+      "store_id": "R778",
+      "store_name": "Apple Hebbal",
+      "total_checks": 1,
+      "available_checks": 0,
+      "unverified_checks": 0,
+      "verified_rate": 100.0,
+      "times_became_available": 0
+    },
+    {
       "store_id": "R756",
       "store_name": "Apple Saket",
-      "total_checks": 1,
+      "total_checks": 4,
       "available_checks": 0,
       "unverified_checks": 0,
       "verified_rate": 100.0,

@@ -65,6 +65,7 @@ STORES = {
     "R744": "Apple BKC",
     "R757": "Apple Borivali",
     "R756": "Apple Saket",
+    "R778": "Apple Hebbal",
 }
 COOKIE = "as_sfa=Mnxpbnxpbnx8ZW5fSU58Y29uc3VtZXJ8aW50ZXJuZXR8MHwwfDE"
 
