@@ -14,7 +14,10 @@ DB location is DB_PATH env var, default ./pickup_history.db. On GitHub Actions,
 point DB_PATH at a path you persist between runs (committed artifact, cache, or
 a mounted volume) so history and cooldown state survive.
 """
+import os
 import shutil
+import sqlite3
+from contextlib import contextmanager
 
 def _get_db_path():
     if "DB_PATH" in os.environ:
