@@ -69,6 +69,28 @@ def api_test_telegram():
         return _no_cache(jsonify({"ok": False, "error": str(e)})), 500
 
 
+@app.route("/api/check_live", methods=["POST", "GET"])
+def api_check_live():
+    try:
+        import monitor
+        results = {sid: monitor.check_store(sid) for sid in monitor.STORES}
+        available = [
+            f"{c} @ {monitor.STORES[sid]}"
+            for sid, (state, detail) in results.items()
+            if state == "available"
+            for c in detail
+        ]
+        if available:
+            monitor.send_telegram(
+                "🎉 iPhone 17 256GB pickup AVAILABLE now: "
+                + "; ".join(available)
+                + f".\nReserve/buy: {monitor.BUY_URL} → choose 'Pick up' and pick the store."
+            )
+        return _no_cache(jsonify({"ok": True, "results": results, "available": available}))
+    except Exception as e:
+        return _no_cache(jsonify({"ok": False, "error": str(e)})), 500
+
+
 
 PAGE = """
 <!doctype html>
@@ -228,6 +250,9 @@ function setLive(lastCheckedISO){
 
 async function tick(manual){
   try {
+    if (manual) {
+      try { await fetch('/api/check_live', {method: 'POST'}); } catch(e){}
+    }
     const [cur, feed, ch, st] = await Promise.all([
       j('api/current'), j('api/history?limit=24'), j('api/changes?days=7'), j('api/stats?days=7')
     ]);
