@@ -145,20 +145,14 @@ def send_telegram(text):
         return
     chat_ids = [c.strip() for c in chat_str.replace(";", ",").split(",") if c.strip()]
     for cid in chat_ids:
-        # Build candidate target IDs (e.g. handle -100 prefix for supergroups/channels)
-        targets = [cid]
-        if cid.startswith("100") and len(cid) >= 10 and not cid.startswith("-"):
-            targets.insert(0, f"-{cid}")
-        for target in targets:
-            data = urllib.parse.urlencode({"chat_id": target, "text": text}).encode()
-            url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-            try:
-                req = urllib.request.Request(url, data=data)
-                with urllib.request.urlopen(req, timeout=30) as r:
-                    print(f"Telegram ({target}):", r.read().decode()[:200])
-                    break
-            except Exception as e:
-                print(f"[warn] Telegram send to {target} failed: {e}")
+        data = urllib.parse.urlencode({"chat_id": cid, "text": text}).encode()
+        url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
+        try:
+            req = urllib.request.Request(url, data=data)
+            with urllib.request.urlopen(req, timeout=30) as r:
+                print(f"Telegram ({cid}):", r.read().decode()[:200])
+        except Exception as e:
+            print(f"[warn] Telegram send to {cid} failed: {e}")
 
 
 def ist_now():
