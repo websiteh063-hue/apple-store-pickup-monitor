@@ -33,8 +33,11 @@ import sys
 import time
 import traceback
 
+import monitor
+monitor._load_env()
+
 DIR = os.path.dirname(os.path.abspath(__file__))
-INTERVAL = float(os.environ.get("PICKUP_INTERVAL", "180"))
+INTERVAL = float(os.environ.get("PICKUP_INTERVAL", "120"))
 MAX_UPTIME = float(os.environ.get("PICKUP_MAX_UPTIME", str(6 * 3600)))
 PUBLISH_SCRIPT = os.path.join(DIR, "publish_json.py")
 PUBLISH_LOG = os.path.join(DIR, "publish.log")
